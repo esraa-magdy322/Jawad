@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-  <template id="oil_change_label_template">
+  <template id="minimal_layout_oil_label">
+    <div class="article" t-att-data-oe-model="o and o._name" t-att-data-oe-id="o and o.id">
+      <t t-raw="0"/>
+    </div>
+  </template>
+
+  <template id="report_oil_label_template">
     <t t-call="web.html_container">
         <t t-call="web.basic_layout">
 
@@ -97,6 +103,5 @@
 
         </t>
     </t>
-</template>
-
+  </template>
 </odoo>
