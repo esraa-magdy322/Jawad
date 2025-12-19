@@ -8,100 +8,23 @@
 
   <template id="report_oil_label_template">
     <t t-call="web.html_container">
-        <t t-call="web.basic_layout">
-
-            <style>
-                .page {
-                    width: 100mm;
-                    height: 50mm;
-                    padding: 10px;
-                    font-size: 14px;
-                    font-family: Arial, sans-serif;
-                    direction: rtl;
-                }
-
-                .oil-table {
-                    width: 100%;
-                    border: 2px solid #000;
-                }
-
-                .oil-row {
-                    display: flex;
-                    min-height: 24px;
-                    border-bottom: 2px solid #000;
-                }
-
-                .oil-row:last-child {
-                    border-bottom: none;
-                }
-
-                .oil-value {
-                    flex: 1;
-                    padding: 4px 6px;
-                    text-align: right;
-                }
-
-                .oil-label {
-                    width: 40%;
-                    border-left: 2px solid #000;
-                    padding: 4px 6px;
-                    font-weight: bold;
-                    text-align: right;
-                    white-space: nowrap;
-                }
-            </style>
-
-            <div class="page">
-
-                <div class="oil-table">
-
-                    <div class="oil-row">
-                        <div class="oil-value">
-                            <t t-esc="o.car_type"/>
-                        </div>
-                        <div class="oil-label">نوع السيارة :</div>
+      <t t-foreach="docs" t-as="o">
+        <t t-call="print_oil_drive.minimal_layout_oil_label">
+          <div class="page" style="width: 100mm; height: 50mm; margin: 0; padding: 0; overflow: hidden;">
+            <!-- <img t-att-src="image_data_uri(o.oil_label_image)"
+                 style="width: 100%; height: 100%; object-fit: fill; display: block;"
+                 alt="Oil Label"/> -->
+                 <div class="page" style="width: 100mm; height: 50mm; padding: 10px; font-size: 14px;">
+                        <p><strong>نوع السيارة:</strong> <span t-esc="o.car_type"/></p>
+                        <p><strong>الموديل:</strong> <span t-esc="o.car_model"/></p>
+                        <!-- <p><strong>رقم اللوحة:</strong> <span t-esc="o.plate_number"/></p> -->
+                        <p><strong>الممشى الحالي:</strong> <span t-esc="o.track"/></p>
+                        <p><strong>الممشى القادم:</strong> <span t-esc="o.next_track"/></p>
+                        <!-- <p><strong>نوع الزيت:</strong> <span t-esc="o.oil_type"/></p> -->
                     </div>
-
-                    <div class="oil-row">
-                        <div class="oil-value">
-                            <t t-esc="o.car_model"/>
-                        </div>
-                        <div class="oil-label">الموديل :</div>
-                    </div>
-
-                    <div class="oil-row">
-                        <div class="oil-value">
-                            <t t-esc="o.plate_number"/>
-                        </div>
-                        <div class="oil-label">رقم اللوحة :</div>
-                    </div>
-
-                    <div class="oil-row">
-                        <div class="oil-value">
-                            <t t-esc="o.track"/>
-                        </div>
-                        <div class="oil-label">الممشى الحالي :</div>
-                    </div>
-
-                    <div class="oil-row">
-                        <div class="oil-value">
-                            <t t-esc="o.next_track"/>
-                        </div>
-                        <div class="oil-label">الممشى القادم :</div>
-                    </div>
-
-                    <!-- <div class="oil-row">
-                        <div class="oil-value">
-                            <t t-esc="o.oil_type"/>
-                        </div>
-                        <div class="oil-label">نوع الزيت :</div>
-                    </div> -->
-
-                </div>
-
-            </div>
-
+          </div>
         </t>
+      </t>
     </t>
   </template>
 </odoo>
