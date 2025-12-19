@@ -1,22 +1,54 @@
-<?xml version="1.0" encoding="utf-8"?>
 <odoo>
-  <template id="minimal_layout_oil_label">
-    <div class="article" t-att-data-oe-model="o and o._name" t-att-data-oe-id="o and o.id">
-      <t t-raw="0"/>
-    </div>
-  </template>
+    <!-- Layout minimal -->
+    <template id="minimal_layout_oil_label_text">
+        <div class="page">
+            <t t-raw="0"/>
+        </div>
+    </template>
 
-  <template id="report_oil_label_template">
-    <t t-call="web.html_container">
-      <t t-foreach="docs" t-as="o">
-        <t t-call="print_oil_drive.minimal_layout_oil_label">
-          <div class="page" style="width: 100mm; height: 50mm; margin: 0; padding: 0; overflow: hidden;">
-            <img t-att-src="image_data_uri(o.oil_label_image)" 
-                 style="width: 100%; height: 100%; object-fit: fill; display: block;"
-                 alt="Oil Label"/>
-          </div>
+    <!-- Oil Label Template -->
+    <template id="report_oil_label_text_template">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="print_oil_drive.minimal_layout_oil_label_text">
+                    <div class="page" style="width: 100mm; height: 50mm; padding: 10px; font-size: 14px;">
+                        <p><strong>نوع السيارة:</strong> <span t-esc="o.car_type"/></p>
+                        <p><strong>الموديل:</strong> <span t-esc="o.car_model"/></p>
+                        <p><strong>رقم اللوحة:</strong> <span t-esc="o.plate_number"/></p>
+                        <p><strong>الممشى الحالي:</strong> <span t-esc="o.track"/></p>
+                        <p><strong>الممشى القادم:</strong> <span t-esc="o.next_track"/></p>
+                        <p><strong>نوع الزيت:</strong> <span t-esc="o.oil_type"/></p>
+                    </div>
+                </t>
+            </t>
         </t>
-      </t>
-    </t>
-  </template>
+    </template>
+
+    <!-- Paper format -->
+    <record id="paperformat_label_text" model="report.paperformat">
+        <field name="name">Label Text Format</field>
+        <field name="default" eval="False"/>
+        <field name="format">custom</field>
+        <field name="page_width">78</field>
+        <field name="page_height">38</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">0</field>
+        <field name="margin_bottom">0</field>
+        <field name="margin_left">0</field>
+        <field name="margin_right">0</field>
+        <field name="header_spacing">0</field>
+        <field name="dpi">96</field>
+    </record>
+
+    <!-- Report Action -->
+    <record id="action_report_oil_label_text" model="ir.actions.report">
+        <field name="name">Oil Change Label Text</field>
+        <field name="model">account.move</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">print_oil_drive.report_oil_label_text_template</field>
+        <field name="report_file">print_oil_drive.report_oil_label_text_template</field>
+        <field name="binding_model_id" ref="account.model_account_move"/>
+        <field name="binding_type">report</field>
+        <field name="paperformat_id" ref="print_oil_drive.paperformat_label_text"/>
+    </record>
 </odoo>
