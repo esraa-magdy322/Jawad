@@ -69,10 +69,7 @@ class PosOrder(models.Model):
             # Get report
             report = self.env.ref('print_oil_drive.action_report_oil_label').sudo()
             
-            return report.report_action({'car_type': label_data.get('car_type', ''),
-                'car_model': label_data.get('car_model', 0),
-                'track': label_data.get('track', 0),
-                'next_track': label_data.get('next_track', 0)})
+            return report.report_action(label_data)
             
         except Exception as e:
             _logger.error(f"Error printing oil label: {str(e)}", exc_info=True)
