@@ -11,9 +11,17 @@
       <t t-foreach="docs" t-as="o">
         <t t-call="print_oil_drive.minimal_layout_oil_label">
           <div class="page" style="width: 100mm; height: 50mm; margin: 0; padding: 0; overflow: hidden;">
-            <img t-att-src="image_data_uri(o.oil_label_image)"
+            <!-- <img t-att-src="image_data_uri(o.oil_label_image)"
                  style="width: 100%; height: 100%; object-fit: fill; display: block;"
-                 alt="Oil Label"/>
+                 alt="Oil Label"/> -->
+                 <div class="page" style="width: 100mm; height: 50mm; padding: 10px; font-size: 14px;">
+                        <p><strong>نوع السيارة:</strong> <span t-esc="o.car_type"/></p>
+                        <p><strong>الموديل:</strong> <span t-esc="o.car_model"/></p>
+                        <!-- <p><strong>رقم اللوحة:</strong> <span t-esc="o.plate_number"/></p> -->
+                        <p><strong>الممشى الحالي:</strong> <span t-esc="o.track"/></p>
+                        <p><strong>الممشى القادم:</strong> <span t-esc="o.next_track"/></p>
+                        <!-- <p><strong>نوع الزيت:</strong> <span t-esc="o.oil_type"/></p> -->
+                    </div>
           </div>
         </t>
       </t>
