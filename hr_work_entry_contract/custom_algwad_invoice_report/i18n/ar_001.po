@@ -1,0 +1,192 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* custom_algwad_invoice_report
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-07-08 15:14+0000\n"
+"PO-Revision-Date: 2024-07-08 18:15+0300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
+"X-Generator: Poedit 3.4.4\n"
+
+#. module: custom_algwad_invoice_report
+#: model:ir.model.fields,field_description:custom_algwad_invoice_report.field_account_bank_statement_line__add_credit_note
+#: model:ir.model.fields,field_description:custom_algwad_invoice_report.field_account_move__add_credit_note
+#: model:ir.model.fields,field_description:custom_algwad_invoice_report.field_account_payment__add_credit_note
+msgid "Add Credit Note"
+msgstr "إضافة ملاحظة ائتمان"
+
+#. module: custom_algwad_invoice_report
+#: model:ir.model.fields,field_description:custom_algwad_invoice_report.field_account_bank_statement_line__add_debit_note
+#: model:ir.model.fields,field_description:custom_algwad_invoice_report.field_account_move__add_debit_note
+#: model:ir.model.fields,field_description:custom_algwad_invoice_report.field_account_payment__add_debit_note
+msgid "Add Debit Note"
+msgstr "إضافة مذكرة خصم"
+
+#. module: custom_algwad_invoice_report
+#: model:ir.model.fields,field_description:custom_algwad_invoice_report.field_account_move_line__amount_discount
+msgid "Amount discount"
+msgstr "مبلغ الخصم"
+
+#. module: custom_algwad_invoice_report
+#: model:ir.model.fields,field_description:custom_algwad_invoice_report.field_account_bank_statement_line__amount_discount_total
+#: model:ir.model.fields,field_description:custom_algwad_invoice_report.field_account_move__amount_discount_total
+#: model:ir.model.fields,field_description:custom_algwad_invoice_report.field_account_payment__amount_discount_total
+msgid "Amount discount total"
+msgstr "إجمالي الخصم"
+
+#. module: custom_algwad_invoice_report
+#: model:ir.model.fields,field_description:custom_algwad_invoice_report.field_account_bank_statement_line__amount_sale_total
+#: model:ir.model.fields,field_description:custom_algwad_invoice_report.field_account_move__amount_sale_total
+#: model:ir.model.fields,field_description:custom_algwad_invoice_report.field_account_payment__amount_sale_total
+msgid "Amount sale total"
+msgstr "إجمالي المبيعات"
+
+#. module: custom_algwad_invoice_report
+#: model_terms:ir.ui.view,arch_db:custom_algwad_invoice_report.res_company_form_inherit
+msgid "Arabic Address"
+msgstr "العنوان بالعربي"
+
+#. module: custom_algwad_invoice_report
+#: model:ir.model.fields,field_description:custom_algwad_invoice_report.field_res_company__arabic_city
+#: model_terms:ir.ui.view,arch_db:custom_algwad_invoice_report.res_company_form_inherit
+msgid "Arabic City"
+msgstr "المدينة بالعربي"
+
+#. module: custom_algwad_invoice_report
+#: model:ir.model.fields,field_description:custom_algwad_invoice_report.field_res_company__arabic_country
+#: model_terms:ir.ui.view,arch_db:custom_algwad_invoice_report.res_company_form_inherit
+msgid "Arabic Country"
+msgstr "الدولة  بالعربي"
+
+#. module: custom_algwad_invoice_report
+#: model:ir.model.fields,field_description:custom_algwad_invoice_report.field_res_company__name_ar
+msgid "Arabic Name"
+msgstr "الاسم باللغة العربية"
+
+#. module: custom_algwad_invoice_report
+#: model:ir.model.fields,field_description:custom_algwad_invoice_report.field_res_company__arabic_state
+#: model_terms:ir.ui.view,arch_db:custom_algwad_invoice_report.res_company_form_inherit
+msgid "Arabic State"
+msgstr "الولاية بالعربي"
+
+#. module: custom_algwad_invoice_report
+#: model:ir.model.fields,field_description:custom_algwad_invoice_report.field_res_company__arabic_street
+msgid "Arabic Street"
+msgstr "الشارع بالعربي"
+
+#. module: custom_algwad_invoice_report
+#: model_terms:ir.ui.view,arch_db:custom_algwad_invoice_report.res_company_form_inherit
+msgid "Arabic Street 2..."
+msgstr "الشارع 2 بالعربي..."
+
+#. module: custom_algwad_invoice_report
+#: model_terms:ir.ui.view,arch_db:custom_algwad_invoice_report.res_company_form_inherit
+msgid "Arabic Street..."
+msgstr "الشارع بالعربي.."
+
+#. module: custom_algwad_invoice_report
+#: model:ir.model.fields,field_description:custom_algwad_invoice_report.field_res_company__arabic_street2
+msgid "Arabic Street2"
+msgstr "الشارع 2 بالعربي"
+
+#. module: custom_algwad_invoice_report
+#: model_terms:ir.ui.view,arch_db:custom_algwad_invoice_report.res_company_form_inherit
+msgid "Arabic ZIP"
+msgstr "الرمز البريدي بالعربي"
+
+#. module: custom_algwad_invoice_report
+#: model:ir.model.fields,field_description:custom_algwad_invoice_report.field_res_company__arabic_zip
+msgid "Arabic Zip"
+msgstr "الرمز البريدي بالعربي"
+
+#. module: custom_algwad_invoice_report
+#: model_terms:ir.ui.view,arch_db:custom_algwad_invoice_report.template_report_invoice_document_inherit
+msgid ""
+"Bacon\n"
+"                                            Burger"
+msgstr ""
+
+#. module: custom_algwad_invoice_report
+#: model:ir.model,name:custom_algwad_invoice_report.model_res_company
+msgid "Companies"
+msgstr "الشركات"
+
+#. module: custom_algwad_invoice_report
+#: model:ir.model.fields,field_description:custom_algwad_invoice_report.field_account_move_line__price_tax
+msgid "Invoice Tax Amount"
+msgstr "مبلغ الضريبة"
+
+#. module: custom_algwad_invoice_report
+#: model:ir.model,name:custom_algwad_invoice_report.model_account_move
+msgid "Journal Entry"
+msgstr "قيد اليومية"
+
+#. module: custom_algwad_invoice_report
+#: model:ir.model,name:custom_algwad_invoice_report.model_account_move_line
+msgid "Journal Item"
+msgstr "عنصر اليومية"
+
+#. module: custom_algwad_invoice_report
+#: model_terms:ir.ui.view,arch_db:custom_algwad_invoice_report.twomark_custom_layout
+msgid "Logo"
+msgstr "الشعار"
+
+#. module: custom_algwad_invoice_report
+#: model_terms:ir.ui.view,arch_db:custom_algwad_invoice_report.twomark_custom_layout
+msgid "Mail:"
+msgstr "الإيميل:"
+
+#. module: custom_algwad_invoice_report
+#: model:ir.model.fields,field_description:custom_algwad_invoice_report.field_res_company__payment_info
+#: model_terms:ir.ui.view,arch_db:custom_algwad_invoice_report.res_company_form_inherit
+msgid "Payment Information"
+msgstr "معلومات السداد"
+
+#. module: custom_algwad_invoice_report
+#: model_terms:ir.ui.view,arch_db:custom_algwad_invoice_report.twomark_custom_layout
+msgid "Tel:"
+msgstr "هاتف:"
+
+#. module: custom_algwad_invoice_report
+#: model:ir.model.fields,field_description:custom_algwad_invoice_report.field_account_bank_statement_line__total_tax_company_currency
+#: model:ir.model.fields,field_description:custom_algwad_invoice_report.field_account_move__total_tax_company_currency
+#: model:ir.model.fields,field_description:custom_algwad_invoice_report.field_account_payment__total_tax_company_currency
+msgid "Total Tax Company Currency"
+msgstr "مبلغ الضريبة بالعملة"
+
+#. module: custom_algwad_invoice_report
+#: model_terms:ir.ui.view,arch_db:custom_algwad_invoice_report.twomark_custom_layout
+msgid "Web:"
+msgstr "الموقع الإلكتروني:"
+
+#. module: custom_algwad_invoice_report
+#: model_terms:ir.ui.view,arch_db:custom_algwad_invoice_report.res_company_form_inherit
+msgid "e.g. My Company"
+msgstr ""
+
+#. module: custom_algwad_invoice_report
+#: model_terms:ir.ui.view,arch_db:custom_algwad_invoice_report.twomark_custom_layout
+msgid ""
+"page :\n"
+"                        <span class=\"page\"/>\n"
+"                        /\n"
+"                        <span class=\"topage\"/>"
+msgstr ""
+"الصفحة:\n"
+"                    <span class=\"page\"/>\n"
+"                    /\n"
+"                    <span class=\"topage\"/>"
+
+#. module: custom_algwad_invoice_report
+#: model_terms:ir.ui.view,arch_db:custom_algwad_invoice_report.twomark_custom_layout
+msgid "user :"
+msgstr "المستخدم:"

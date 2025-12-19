@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+
+        <record id="account_view_move_form" model="ir.ui.view">
+            <field name="name">account.view.move.form</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='partner_id']" position="after">
+                    <field name="move_type" invisible="1"/>
+                    <field name="pay_type" readonly="state in ['posted']"
+                           invisible="move_type not in ['out_invoice', 'in_invoice']"/>
+                    <field name="payment_journal" readonly="state in ['posted']"
+                           invisible="move_type not in ['out_invoice', 'in_invoice']"/>
+                </xpath>
+            </field>
+        </record>
+
+
+        <record id="view_account_invoice_filter_inherit" model="ir.ui.view">
+            <field name="name">.view.account.invoice.filter.inherit</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_account_invoice_filter"/>
+            <field name="arch" type="xml">
+                <xpath expr="//search/group" position="inside">
+                    <filter string="Payment Type" name="pay_type" context="{'group_by':'pay_type'}"/>
+                    <filter string="Payment Method" name="payment_journal"
+                            context="{'group_by':'payment_journal'}"/>
+                </xpath>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

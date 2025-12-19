@@ -1,0 +1,70 @@
+# -*- coding: utf-8 -*-
+from odoo import models, fields, api
+import base64
+import os
+from PIL import Image, ImageDraw, ImageFont
+from io import BytesIO
+
+
+class AccountMove(models.Model):
+    _inherit = 'account.move'
+
+    track = fields.Char(
+        string='Track (Current Odometer)',
+        help='Current odometer reading for oil change label'
+    )
+
+    oil_label_image = fields.Binary(
+        string='Oil Label Image',
+        compute='_compute_oil_label_image'
+    )
+
+    @api.depends('invoice_date', 'track')
+    def _compute_oil_label_image(self):
+        """Load the oil label template image and draw track and invoice date on it"""
+        module_path = os.path.dirname(os.path.dirname(__file__))
+        image_path = os.path.join(module_path, 'static', 'src', 'img', 'oil_label_template.png')
+
+        for record in self:
+            if os.path.exists(image_path):
+                # Open the template image
+                img = Image.open(image_path)
+                draw = ImageDraw.Draw(img)
+
+                # Try to load a font with appropriate size
+                try:
+                    font = ImageFont.truetype("arial.ttf", 36)
+                except:
+                    try:
+                        font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 36)
+                    except:
+                        try:
+                            font = ImageFont.truetype("/usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf", 36)
+                        except:
+                            font = ImageFont.load_default()
+
+                # Draw track in العداد الحالي (right white field - Current Odometer)
+                if record.track:
+                    track_text = str(record.track)
+                    x_position_current = 570  # Right side
+                    y_position_current = 280  # Middle of the field
+                    draw.text((x_position_current, y_position_current), track_text, fill='black', font=font)
+
+                # Draw invoice_date in العداد القادم (left white field - Next Odometer)
+                if record.invoice_date:
+                    date_text = record.invoice_date.strftime('%Y/%m/%d')
+                    x_position_next = 163  # Left side
+                    y_position_next = 280  # Middle of the field
+                    draw.text((x_position_next, y_position_next), date_text, fill='black', font=font)
+
+                # Convert image to base64
+                buffer = BytesIO()
+                img.save(buffer, format='PNG')
+                record.oil_label_image = base64.b64encode(buffer.getvalue())
+            else:
+                record.oil_label_image = False
+
+    def action_print_oil_label(self):
+        """Print the oil change label with the template image"""
+        return self.env.ref('print_oil_drive.action_report_oil_label').report_action(self)
+

@@ -1,0 +1,21 @@
+import { ControlButtons } from "@point_of_sale/app/screens/product_screen/control_buttons/control_buttons";
+import { patch } from "@web/core/utils/patch";
+
+patch(ControlButtons.prototype, {
+    async apply_discount(pc) {
+        if (this.pos.config.global_discount_in_line) {
+            // Apply discount to all order lines instead of adding discount product
+            const order = this.pos.get_order();
+            const lines = order.get_orderlines();
+
+            for (const line of lines) {
+                if (line.isGlobalDiscountApplicable()) {
+                    line.set_discount(pc);
+                }
+            }
+        } else {
+            // Use the original discount method (adds discount product)
+            return super.apply_discount(...arguments);
+        }
+    },
+});

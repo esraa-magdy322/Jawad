@@ -1,0 +1,18 @@
+/* Oil Label CSS - ONLY for oil label reports */
+/* DO NOT affect other reports */
+
+/* Only apply to pages that have oil-label-container class */
+.oil-label-container {
+    width: 100mm !important;
+    height: 50mm !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+}
+
+.oil-label-container img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: fill !important;
+    display: block !important;
+}

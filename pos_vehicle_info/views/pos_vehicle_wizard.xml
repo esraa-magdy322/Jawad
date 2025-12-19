@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_pos_vehicle_wizard_form" model="ir.ui.view">
+        <field name="name">pos.vehicle.wizard.form</field>
+        <field name="model">pos.vehicle.wizard</field>
+        <field name="arch" type="xml">
+            <form string="معلومات السيارة">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="plate_number" placeholder="أدخل رقم السيارة"/>
+                            <field name="car_type" placeholder="أدخل نوع السيارة"/>
+                            <field name="car_model" placeholder="أدخل موديل السيارة"/>
+                        </group>
+                        <group>
+                            <field name="track" placeholder="أدخل الممشى الحالي"/>
+                            <field name="next_track" placeholder="أدخل الممشى القادم"/>
+                        </group>
+                    </group>
+                </sheet>
+                <footer>
+                    <button string="حفظ" class="btn-primary" special="save" data-hotkey="q"/>
+                    <button string="إلغاء" class="btn-secondary" special="cancel" data-hotkey="z"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

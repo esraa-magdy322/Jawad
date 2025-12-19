@@ -1,0 +1,60 @@
+/** @odoo-module **/
+
+import { PaymentScreen } from "@point_of_sale/app/screens/payment_screen/payment_screen";
+import { patch } from "@web/core/utils/patch";
+import { _t } from "@web/core/l10n/translation";
+import { ErrorPopup } from "@point_of_sale/app/errors/popups/error_popup";
+
+// Patch only adds the method, doesn't override setup or other methods
+patch(PaymentScreen.prototype, {
+    async onClickPrintOilLabel() {
+        const currentOrder = this.currentOrder;
+        
+        if (!currentOrder) {
+            await this.popup.add(ErrorPopup, {
+                title: _t("تنبيه"),
+                body: _t("لا يوجد طلب حالي"),
+            });
+            return;
+        }
+
+        // Check if vehicle info is filled
+        if (!currentOrder.track || !currentOrder.next_track) {
+            await this.popup.add(ErrorPopup, {
+                title: _t("معلومات ناقصة"),
+                body: _t("الرجاء إدخال معلومات السيارة (الممشى والممشى القادم) أولاً من زر Vehicle"),
+            });
+            return;
+        }
+
+        try {
+            // Prepare label data
+            const labelData = {
+                plate_number: currentOrder.plate_number || '',
+                car_type: currentOrder.car_type || '',
+                car_model: currentOrder.car_model || 0,
+                track: currentOrder.track || 0,
+                next_track: currentOrder.next_track || 0,
+            };
+
+            // Call backend method to print label
+            const result = await this.env.services.orm.call(
+                "pos.order",
+                "action_print_oil_label_from_pos",
+                [],
+                { label_data: labelData }
+            );
+
+            if (result && result.type === "ir.actions.report") {
+                await this.env.services.action.doAction(result);
+            }
+
+        } catch (error) {
+            console.error("Error printing oil label:", error);
+            await this.popup.add(ErrorPopup, {
+                title: _t("خطأ في الطباعة"),
+                body: _t("حدث خطأ: ") + (error.message || error),
+            });
+        }
+    },
+});

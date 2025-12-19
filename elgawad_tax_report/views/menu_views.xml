@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_tax_report_excel"
+        name="Sales Excel TAX"
+        parent="account.menu_finance_configuration"
+        action="action_tax_report_wizard"
+        sequence="100"/>
+
+    <menuitem id="menu_vendor_tax_report_excel"
+        name="Bill Tax Report"
+        parent="account.menu_finance_configuration"
+        action="action_vendor_tax_report_wizard"
+        sequence="101"/>
+</odoo>

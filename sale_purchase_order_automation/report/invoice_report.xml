@@ -1,0 +1,38 @@
+<odoo>
+    <data>
+
+
+        <!--        t-options='{"widget": "monetary", "display_currency": o.currency_id}'-->
+        <template id="report_invoice_document_branch" inherit_id="l10n_gcc_invoice.arabic_english_invoice">
+            <xpath expr="//div[hasclass('row')]" position="after">
+                <h5>
+                    <div class="row">
+                        <div class="col-4" style="text-align:left">
+                            <span>
+                                Payment Type
+                            </span>
+                        </div>
+                        <div class="col-4 text-center">
+                            <span t-if="o.pay_type == 'cash' ">
+                                ( فاتورة نقدية)
+                                <br/>
+                                (<span t-esc="o.payment_journal.name" ></span>)
+                            </span>
+                            <span t-if="o.pay_type == 'credit' ">
+                                ( فاتورة اجلة )
+                            </span>
+                        </div>
+                        <div class="col-4" style="text-align:right">
+                            <span>
+                                طريقة الدفع
+                            </span>
+                        </div>
+                    </div>
+                </h5>
+            </xpath>
+
+        </template>
+
+
+    </data>
+</odoo>

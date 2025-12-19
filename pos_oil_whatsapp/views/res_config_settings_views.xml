@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form_pos_oil_whatsapp" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.pos.oil.whatsapp</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="point_of_sale.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//block[@id='pos_payment_section']" position="after">
+                <block title="Oil Drive WhatsApp" id="pos_oil_whatsapp_section">
+                    <setting string="Oil Label WhatsApp Notifications" 
+                             help="Send oil label image via WhatsApp after POS sales (Oil Drive company only)">
+                        <field name="pos_oil_whatsapp_enabled"/>
+                        <div class="content-group" invisible="not pos_oil_whatsapp_enabled">
+                            <div class="row mt16">
+                                <label for="pos_oil_smartwhatsapp_instance_id" string="Instance ID" class="col-lg-3 o_light_label"/>
+                                <field name="pos_oil_smartwhatsapp_instance_id" placeholder="e.g., 671F5949881CA"/>
+                            </div>
+                            <div class="row mt16">
+                                <label for="pos_oil_smartwhatsapp_access_token" string="Access Token" class="col-lg-3 o_light_label"/>
+                                <field name="pos_oil_smartwhatsapp_access_token" password="True" placeholder="e.g., 669113eed7a19"/>
+                            </div>
+                            <div class="row mt16">
+                                <label for="pos_oil_message_template" string="Message Template" class="col-lg-3 o_light_label"/>
+                                <field name="pos_oil_message_template" class="col-lg-9"/>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-9 offset-lg-3 text-muted">
+                                    <small>Variables: {customer_name}, {car_info}, {plate_number}, {track}, {next_track}</small>
+                                </div>
+                            </div>
+                        </div>
+                    </setting>
+                </block>
+            </xpath>
+        </field>
+    </record>
+</odoo>

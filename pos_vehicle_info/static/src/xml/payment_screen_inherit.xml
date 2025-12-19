@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="point_of_sale.PaymentScreenButtons" t-inherit="point_of_sale.PaymentScreenButtons" t-inherit-mode="extension" owl="1">
+        <xpath expr="//button[hasclass('js_invoice')]" position="after">
+            <button class="button print-oil-label-btn btn btn-success py-3 text-start rounded-0 border-bottom" 
+                t-on-click="onClickPrintOilLabel">
+                <i class="fa fa-print me-2" />Print Oil Label
+            </button>
+        </xpath>
+    </t>
+
+</templates>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="pos_vehicle_info.VehiclePopup">
+        <div class="popup popup-vehicle-info">
+            <header class="modal-header">
+                <h4 class="modal-title"><t t-esc="props.title"/></h4>
+            </header>
+            
+            <main class="modal-body" style="max-width: 600px;">
+                <div class="row mb-3">
+                    <div class="col-12">
+                        <label class="form-label fw-bold">رقم السيارة / Plate Number</label>
+                        <input 
+                            type="text" 
+                            class="form-control" 
+                            t-model="state.plate_number"
+                            placeholder="أدخل رقم السيارة"
+                            autofocus="autofocus"
+                        />
+                    </div>
+                </div>
+                
+                <div class="row mb-3">
+                    <div class="col-12">
+                        <label class="form-label fw-bold">نوع السيارة / Car Type</label>
+                        <input 
+                            type="text" 
+                            class="form-control" 
+                            t-model="state.car_type"
+                            placeholder="أدخل نوع السيارة"
+                        />
+                    </div>
+                </div>
+                
+                <div class="row mb-3">
+                    <div class="col-12">
+                        <label class="form-label fw-bold">موديل السيارة / Car Model</label>
+                        <input 
+                            type="number" 
+                            class="form-control" 
+                            t-model="state.car_model"
+                            placeholder="أدخل موديل السيارة"
+                        />
+                    </div>
+                </div>
+                
+                <div class="row mb-3">
+                    <div class="col-12">
+                        <label class="form-label fw-bold">الممشى الحالي / Current Mileage</label>
+                        <input 
+                            type="number" 
+                            class="form-control" 
+                            t-model="state.track"
+                            placeholder="أدخل الممشى الحالي"
+                        />
+                    </div>
+                </div>
+                
+                <div class="row mb-3">
+                    <div class="col-12">
+                        <label class="form-label fw-bold">الممشى القادم / Next Mileage</label>
+                        <input 
+                            type="number" 
+                            class="form-control" 
+                            t-model="state.next_track"
+                            placeholder="أدخل الممشى القادم"
+                        />
+                    </div>
+                </div>
+            </main>
+            
+            <footer class="modal-footer">
+                <div class="row w-100">
+                    <div class="col-6">
+                        <button 
+                            class="btn btn-primary w-100" 
+                            t-on-click="confirm"
+                        >
+                            <i class="fa fa-check me-2"/>
+                            <t t-esc="props.confirmText"/>
+                        </button>
+                    </div>
+                    <div class="col-6">
+                        <button 
+                            class="btn btn-secondary w-100" 
+                            t-on-click="cancel"
+                        >
+                            <i class="fa fa-times me-2"/>
+                            <t t-esc="props.cancelText"/>
+                        </button>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </t>
+</templates>

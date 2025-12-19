@@ -1,0 +1,214 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* sale_purchase_order_automation
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-01-13 18:59+0000\n"
+"PO-Revision-Date: 2025-01-13 18:59+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: sale_purchase_order_automation
+#: model:ir.model.fields.selection,name:sale_purchase_order_automation.selection__account_move__pay_type__cash
+#: model:ir.model.fields.selection,name:sale_purchase_order_automation.selection__purchase_order__pay_type__cash
+#: model:ir.model.fields.selection,name:sale_purchase_order_automation.selection__sale_order__pay_type__cash
+msgid "Cash"
+msgstr "نقدى"
+
+#. module: sale_purchase_order_automation
+#: model_terms:ir.ui.view,arch_db:sale_purchase_order_automation.sale_order_view_search_inherit_sale
+msgid "Cash Order"
+msgstr "اوامر البيع النقدى"
+
+#. module: sale_purchase_order_automation
+#: model:ir.model,name:sale_purchase_order_automation.model_res_company
+msgid "Companies"
+msgstr "الشركات"
+
+#. module: sale_purchase_order_automation
+#: model:ir.model,name:sale_purchase_order_automation.model_res_config_settings
+msgid "Config Settings"
+msgstr "تهيئة الإعدادات "
+
+#. module: sale_purchase_order_automation
+#: model:ir.model.fields.selection,name:sale_purchase_order_automation.selection__res_company__done_without_approval__no
+msgid "Confirm all after approval"
+msgstr ""
+
+#. module: sale_purchase_order_automation
+#: model:ir.model.fields,field_description:sale_purchase_order_automation.field_stock_warehouse__create_bill
+msgid "Create Bill?"
+msgstr "انشاء فاتورة شراء"
+
+#. module: sale_purchase_order_automation
+#: model:ir.model.fields,field_description:sale_purchase_order_automation.field_stock_warehouse__create_invoice
+msgid "Create Invoice?"
+msgstr "انشاء فاتورة بيع"
+
+#. module: sale_purchase_order_automation
+#: model:ir.model.fields.selection,name:sale_purchase_order_automation.selection__account_move__pay_type__credit
+#: model:ir.model.fields.selection,name:sale_purchase_order_automation.selection__purchase_order__pay_type__credit
+#: model:ir.model.fields.selection,name:sale_purchase_order_automation.selection__sale_order__pay_type__credit
+msgid "Credit"
+msgstr "اجل"
+
+#. module: sale_purchase_order_automation
+#: model_terms:ir.ui.view,arch_db:sale_purchase_order_automation.sale_order_view_search_inherit_sale
+msgid "Credit Order"
+msgstr "اوامر البيع الاجلة"
+
+#. module: sale_purchase_order_automation
+#: model:ir.model.fields,field_description:sale_purchase_order_automation.field_stock_warehouse__is_delivery_set_to_done
+msgid "Delivery Done?"
+msgstr "تأكيد التوصيل"
+
+#. module: sale_purchase_order_automation
+#: model_terms:ir.ui.view,arch_db:sale_purchase_order_automation.sale_confirm_extended_for_warehouse
+msgid "Delivery and Invoicing"
+msgstr "التوصيل والفواتير"
+
+#. module: sale_purchase_order_automation
+#: model_terms:ir.ui.view,arch_db:sale_purchase_order_automation.res_config_setting_purchase_view_inherit
+msgid "Done Receipt and Create Invoice with/without Approval"
+msgstr ""
+
+#. module: sale_purchase_order_automation
+#: model:ir.model,name:sale_purchase_order_automation.model_account_move
+msgid "Journal Entry"
+msgstr "قيد اليومية"
+
+#. module: sale_purchase_order_automation
+#. odoo-python
+#: code:addons/sale_purchase_order_automation/models/purchase_order.py:0
+#: code:addons/sale_purchase_order_automation/models/sale_order.py:0
+#, python-format
+msgid "Order Payments"
+msgstr "المدفوعات"
+
+#. module: sale_purchase_order_automation
+#: model:ir.model.fields,field_description:sale_purchase_order_automation.field_stock_warehouse__pay_bill
+msgid "Payment Bill?"
+msgstr "سداد الفاتورة"
+
+#. module: sale_purchase_order_automation
+#: model:ir.model.fields,field_description:sale_purchase_order_automation.field_purchase_order__payment_count
+#: model:ir.model.fields,field_description:sale_purchase_order_automation.field_sale_order__payment_count
+msgid "Payment Count"
+msgstr "المدفوعات"
+
+#. module: sale_purchase_order_automation
+#: model:ir.model.fields,field_description:sale_purchase_order_automation.field_account_bank_statement_line__payment_journal
+#: model:ir.model.fields,field_description:sale_purchase_order_automation.field_account_move__payment_journal
+#: model:ir.model.fields,field_description:sale_purchase_order_automation.field_account_payment__payment_journal
+#: model:ir.model.fields,field_description:sale_purchase_order_automation.field_purchase_order__payment_journal
+#: model:ir.model.fields,field_description:sale_purchase_order_automation.field_sale_order__payment_journal
+#: model_terms:ir.ui.view,arch_db:sale_purchase_order_automation.sale_order_view_search_inherit_sale
+#: model_terms:ir.ui.view,arch_db:sale_purchase_order_automation.view_account_invoice_filter_inherit
+msgid "Payment Method"
+msgstr "وسيلة الدفع"
+
+#. module: sale_purchase_order_automation
+#: model:ir.model.fields,field_description:sale_purchase_order_automation.field_account_bank_statement_line__pay_type
+#: model:ir.model.fields,field_description:sale_purchase_order_automation.field_account_move__pay_type
+#: model:ir.model.fields,field_description:sale_purchase_order_automation.field_account_payment__pay_type
+#: model:ir.model.fields,field_description:sale_purchase_order_automation.field_purchase_order__pay_type
+#: model:ir.model.fields,field_description:sale_purchase_order_automation.field_sale_order__pay_type
+#: model_terms:ir.ui.view,arch_db:sale_purchase_order_automation.sale_order_view_search_inherit_sale
+#: model_terms:ir.ui.view,arch_db:sale_purchase_order_automation.view_account_invoice_filter_inherit
+msgid "Payment Type"
+msgstr "نوع الدفع"
+
+#. module: sale_purchase_order_automation
+#: model:ir.model.fields,field_description:sale_purchase_order_automation.field_stock_warehouse__pay_invoice
+msgid "Payment invoice?"
+msgstr "سداد الفاتورة"
+
+#. module: sale_purchase_order_automation
+#: model:ir.model,name:sale_purchase_order_automation.model_account_payment
+#: model_terms:ir.ui.view,arch_db:sale_purchase_order_automation.view_order_form_inherit
+#: model_terms:ir.ui.view,arch_db:sale_purchase_order_automation.view_purchase_order_form_inherit
+msgid "Payments"
+msgstr "الدفعات"
+
+#. module: sale_purchase_order_automation
+#: model_terms:ir.ui.view,arch_db:sale_purchase_order_automation.view_purchase_order_form_inherit
+msgid ""
+"Please Be Sure after Confirm the Receipt will automatically go the done\n"
+"                        state and an invoice will create Automatically. and payment will be done."
+msgstr ""
+
+#. module: sale_purchase_order_automation
+#: model_terms:ir.ui.view,arch_db:sale_purchase_order_automation.view_order_form_inherit
+msgid ""
+"Please Be Sure after Confirm the delivery will automatically go the done\n"
+"                        state and an invoice will create Automatically and payment will be done."
+msgstr ""
+
+#. module: sale_purchase_order_automation
+#: model:ir.model.fields,field_description:sale_purchase_order_automation.field_res_company__done_without_approval
+#: model:ir.model.fields,field_description:sale_purchase_order_automation.field_res_config_settings__done_without_approval
+msgid "Purchase Automate Setting"
+msgstr "اعدادت الشراء"
+
+#. module: sale_purchase_order_automation
+#: model_terms:ir.ui.view,arch_db:sale_purchase_order_automation.res_config_setting_purchase_view_inherit
+msgid "Purchase Automation"
+msgstr ""
+
+#. module: sale_purchase_order_automation
+#: model_terms:ir.ui.view,arch_db:sale_purchase_order_automation.res_config_setting_purchase_view_inherit
+msgid "Purchase Automation Settings"
+msgstr ""
+
+#. module: sale_purchase_order_automation
+#: model:ir.model,name:sale_purchase_order_automation.model_purchase_order
+#: model:ir.model.fields,field_description:sale_purchase_order_automation.field_account_payment__purchase_order_id
+msgid "Purchase Order"
+msgstr "أمر شراء"
+
+#. module: sale_purchase_order_automation
+#: model_terms:ir.ui.view,arch_db:sale_purchase_order_automation.sale_confirm_extended_for_warehouse
+msgid "Reception and Billing"
+msgstr "الاستلامات والفوترة"
+
+#. module: sale_purchase_order_automation
+#: model:ir.model.fields,field_description:sale_purchase_order_automation.field_account_payment__sale_id
+msgid "Sale"
+msgstr "بيع"
+
+#. module: sale_purchase_order_automation
+#: model:ir.model,name:sale_purchase_order_automation.model_sale_order
+msgid "Sales Order"
+msgstr "أمر البيع"
+
+#. module: sale_purchase_order_automation
+#: model:ir.model.fields.selection,name:sale_purchase_order_automation.selection__res_company__done_without_approval__yes
+msgid "Skip Approval Stage"
+msgstr ""
+
+#. module: sale_purchase_order_automation
+#: model:ir.model.fields,field_description:sale_purchase_order_automation.field_stock_warehouse__validate_bill
+msgid "Validate Bill?"
+msgstr "تأكيد الفاتورة"
+
+#. module: sale_purchase_order_automation
+#: model:ir.model.fields,field_description:sale_purchase_order_automation.field_stock_warehouse__validate_invoice
+msgid "Validate invoice?"
+msgstr "تأكيد الفاتورة"
+
+#. module: sale_purchase_order_automation
+#: model:ir.model,name:sale_purchase_order_automation.model_stock_warehouse
+msgid "Warehouse"
+msgstr "المستودع "
+
+#. module: sale_purchase_order_automation
+#: model:ir.model.fields,field_description:sale_purchase_order_automation.field_stock_warehouse__reception_done
+msgid "receipt Done?"
+msgstr "تأكيد الاستلام"

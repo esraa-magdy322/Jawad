@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Add Print Order button in Sale Order form -->
+        <record id="view_sale_order_form_print_button" model="ir.ui.view">
+            <field name="name">sale.order.form.print.button</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//form/header" position="inside">
+                    <button name="%(custom_algwad_v17.action_report_sale_order)d"
+                            string="Print Sale Order"
+                            type="action"
+                            class="btn-primary"/>
+                </xpath>
+            </field>
+        </record>
+
+        
+
+        <!-- Add default_bank after Order Lines -->
+        <record id="view_sale_order_form_default_bank" model="ir.ui.view">
+            <field name="name">sale.order.form.default_bank</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='order_line']" position="after">
+                    <group string='Banking INFO'>
+                            <field name="default_bank"  placeholder="Enter Default Bank here..."/>
+                    </group>
+                </xpath>
+            </field>
+        </record> 
+    </data>
+</odoo>

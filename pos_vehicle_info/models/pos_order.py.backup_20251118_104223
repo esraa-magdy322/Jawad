@@ -1,0 +1,70 @@
+# -*- coding: utf-8 -*-
+from odoo import models, fields, api
+import logging
+
+_logger = logging.getLogger(__name__)
+
+class PosOrder(models.Model):
+    _inherit = "pos.order"
+
+    plate_number = fields.Char(string="Plate Number / رقم السيارة")
+    car_type = fields.Char(string="Car Type / نوع السيارة")
+    car_model = fields.Integer(string="Car Model / موديل السيارة")
+    track = fields.Integer(string="Current Mileage / الممشى")
+    next_track = fields.Integer(string="Next Mileage / الممشى القادم")
+
+    def _prepare_invoice_vals(self):
+        """Override to add vehicle info to invoice"""
+        vals = super(PosOrder, self)._prepare_invoice_vals()
+        vals.update({
+            "plate_number": self.plate_number,
+            "car_type": self.car_type,
+            "car_model": self.car_model,
+            "track": self.track,
+            "next_track": self.next_track,
+        })
+        return vals
+    
+    @api.model
+    def action_print_oil_label_from_pos(self, label_data):
+        """Print oil label from POS data"""
+        try:
+            _logger.info(f"Received label data: {label_data}")
+            
+            # Create a minimal draft invoice just for printing
+            AccountMove = self.env['account.move'].sudo()
+            
+            temp_invoice = AccountMove.create({
+                'move_type': 'out_invoice',
+                'plate_number': label_data.get('plate_number', ''),
+                'car_type': label_data.get('car_type', ''),
+                'car_model': label_data.get('car_model', 0),
+                'track': label_data.get('track', 0),
+                'next_track': label_data.get('next_track', 0),
+            })
+            
+            _logger.info(f"Created temp invoice ID: {temp_invoice.id}")
+            _logger.info(f"Temp invoice track: {temp_invoice.track}, next_track: {temp_invoice.next_track}")
+            
+            # Force compute the oil_label_image field
+            temp_invoice._compute_oil_label_image()
+            
+            _logger.info(f"Oil label image computed: {bool(temp_invoice.oil_label_image)}")
+            
+            # Get report action using standard method
+            report = self.env.ref('print_oil_drive.action_report_oil_label').sudo()
+            
+            # Generate and return report action with proper docids
+            return report.report_action(temp_invoice)
+            
+        except Exception as e:
+            _logger.error(f"Error printing oil label: {str(e)}", exc_info=True)
+            return {
+                'type': 'ir.actions.client',
+                'tag': 'display_notification',
+                'params': {
+                    'title': 'خطأ في الطباعة',
+                    'message': str(e),
+                    'type': 'danger',
+                }
+            }

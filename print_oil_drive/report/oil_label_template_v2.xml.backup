@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <template id="report_oil_label_template">
+    <main>
+      <t t-foreach="docs" t-as="o">
+        <div class="page">
+          <div class="label-page">
+            <img t-att-src="image_data_uri(o.oil_label_image)" alt="Oil Change Label"/>
+          </div>
+        </div>
+      </t>
+    </main>
+  </template>
+</odoo>

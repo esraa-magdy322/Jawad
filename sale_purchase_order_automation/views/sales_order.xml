@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+
+        <record id="view_order_form_inherit" model="ir.ui.view">
+            <field name="name">sale.order.form.inherit</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//button[@name='action_confirm']" position="attributes">
+                    <attribute name="confirm">Please Be Sure after Confirm the delivery will automatically go the done
+                        state and an invoice will create Automatically and payment will be done.
+                    </attribute>
+                </xpath>
+                <xpath expr="//button[@name='action_view_invoice']" position="after">
+                    <button type="object" name="action_view_payments" class="oe_stat_button" icon="fa-money"
+                            invisible="payment_count == 0">
+                        <field name="payment_count" widget="statinfo" string="Payments"/>
+                    </button>
+                </xpath>
+
+                <xpath expr="//field[@name='partner_id']" position="after">
+                    <field name="pay_type" readonly="state in ['cancel', 'sale']"/>
+                    <field name="payment_journal"
+                           readonly="state in ['cancel', 'sale']"
+                           invisible="pay_type != 'cash'"
+                           required="pay_type == 'cash'"
+                           domain="[('company_id', '=', company_id),('type', 'in', ('bank', 'cash'))]"
+                           options="{'no_quick_create': True, 'no_create_edit': True, 'no_open': True}"/>
+                </xpath>
+                <xpath expr="//field[@name='payment_term_id']" position="after">
+                    <field name="warehouse_id" readonly="state in ['cancel', 'sale']"
+                           options="{'no_quick_create': True, 'no_create_edit': True, 'no_open': True}"/>
+                </xpath>
+            </field>
+        </record>
+
+
+        <record id="sale_order_view_search_inherit_sale" model="ir.ui.view">
+            <field name="name">sale.order.search.inherit.sale</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_sales_order_filter"/>
+            <field name="arch" type="xml">
+                <xpath expr="//filter[@name='activities_upcoming_all']" position="after">
+                    <separator/>
+                    <filter string="Cash Order" name="pay_type_cash" domain="[('pay_type','=','cash')]"/>
+                    <filter string="Credit Order" name="pay_type_credit" domain="[('pay_type','=','credit')]"/>
+                </xpath>
+
+                <xpath expr="//search/group" position="inside">
+                    <filter string="Payment Type" name="pay_type" context="{'group_by':'pay_type'}"/>
+                    <filter string="Payment Method" name="payment_journal"
+                            context="{'group_by':'payment_journal'}"/>
+                </xpath>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

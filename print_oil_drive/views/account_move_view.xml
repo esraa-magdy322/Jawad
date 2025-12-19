@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <!-- Add Print Oil Label button for Oil Drive company only -->
+        <record id="view_move_form_print_oil" model="ir.ui.view">
+            <field name="name">view_move_form_print_oil</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="arch" type="xml">
+                <!-- Add Print Oil Label button - visible only for Oil Drive company -->
+                <xpath expr="//header/field[@name='state']" position="before">
+                    <field name="is_oil_drive_company" invisible="1"/>
+                    <button name="%(print_oil_drive.action_report_oil_label)d"
+                            string="Print Oil Label"
+                            type="action"
+                            class="btn-primary"
+                            icon="fa-print"
+                            context="{'discard_logo_check': True}"
+                            invisible="is_oil_drive_company == False"/>
+                </xpath>
+
+            </field>
+        </record>
+    </data>
+</odoo>

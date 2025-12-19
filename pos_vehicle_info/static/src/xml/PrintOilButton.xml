@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    
+    <t t-name="pos_vehicle_info.PrintOilButton" owl="1">
+        <div class="button print-oil-label-btn" 
+             style="margin-top: 10px; padding: 10px; background: #28a745; color: white; text-align: center; cursor: pointer; border-radius: 5px;"
+             t-on-click="onClickPrintOilLabel">
+            <i class="fa fa-print" style="margin-right: 5px;"></i>
+            <span>Print Oil Label</span>
+        </div>
+    </t>
+
+</templates>

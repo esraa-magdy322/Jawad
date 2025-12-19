@@ -1,0 +1,36 @@
+<odoo>
+    <data>
+
+        <record id="view_purchase_order_form_inherit" model="ir.ui.view">
+            <field name="name">purchase.order.form.inherit</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//button[@name='button_confirm']" position="attributes">
+                    <attribute name="confirm">Please Be Sure after Confirm the Receipt will automatically go the done
+                        state and an invoice will create Automatically. and payment will be done.
+                    </attribute>
+                </xpath>
+
+                <xpath expr="//button[@name='action_view_invoice']" position="after">
+                    <button type="object" name="action_view_payments" class="oe_stat_button" icon="fa-money"
+                            invisible="payment_count == 0">
+                        <field name="payment_count" widget="statinfo" string="Payments"/>
+                    </button>
+                </xpath>
+
+                <xpath expr="//field[@name='partner_ref']" position="after">
+                    <field name="pay_type" readonly="state not in 'draft'"/>
+                    <field name="payment_journal"
+                           readonly="state not in 'draft'"
+                           invisible="pay_type != 'cash'"
+                           required="pay_type == 'cash'"
+                           domain="[('type', 'in', ('bank', 'cash')),('company_id', '=', company_id)]"
+                           options="{'no_quick_create': True, 'no_create_edit': True, 'no_open': True}"/>
+                </xpath>
+
+            </field>
+        </record>
+
+    </data>
+</odoo>

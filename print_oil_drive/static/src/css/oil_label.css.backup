@@ -1,0 +1,25 @@
+/* Label 40x80mm — fill the page exactly */
+@page {
+  size: 80mm 40mm;
+  margin: 0;
+}
+
+html, body, .page, .label-page {
+  width: 40mm !important;
+  height: 80mm !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.label-page {
+  display: block;
+  overflow: hidden;
+  position: relative;
+}
+
+.label-page img {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+  object-fit: contain;
+}

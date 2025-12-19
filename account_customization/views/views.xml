@@ -1,0 +1,29 @@
+<odoo>
+    <data>
+        <!-- explicit list view definition -->
+        <!-- Inherit Form View to Modify it -->
+        <record id="account_view_move_form" model="ir.ui.view">
+            <field name="name">account.move.form</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='line_ids']/tree/field[@name='account_id']" position="after">
+                    <field name="opening_balance"/>
+                </xpath>
+            </field>
+        </record>
+
+
+        <record id="view_move_line_tree_balance" model="ir.ui.view">
+            <field name="name">account.move.tree.balance</field>
+            <field name="model">account.move.line</field>
+            <field name="inherit_id" ref="account.view_move_line_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="after">
+                    <field name="opening_balance"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

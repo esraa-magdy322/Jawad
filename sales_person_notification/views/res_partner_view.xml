@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_res_partner_form_inherit_sales_notification" model="ir.ui.view">
+        <field name="name">res.partner.form.inherit.sales.notification</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='sales_purchases']//group[@name='container_row_2']//group[@name='sale']" position="inside">
+                <field name="customer_rank" invisible="1"/>
+                <field name="sales_period_notification"
+                       widget="integer"
+                       invisible="customer_rank == 0"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
