@@ -69,12 +69,12 @@
             </td>
         </tr>
 
-        <tr style="height:22px;">
-            <td style="border:1px solid black;">نوع الزيت :</td>
-            <td style="border:1px solid black;">
-                <span t-esc="o.oil_type"/>
-            </td>
-        </tr>
+<!--        <tr style="height:22px;">-->
+<!--            <td style="border:1px solid black;">نوع الزيت :</td>-->
+<!--            <td style="border:1px solid black;">-->
+<!--                <span t-esc="o.oil_type"/>-->
+<!--            </td>-->
+<!--        </tr>-->
 
     </table>
 </div>
