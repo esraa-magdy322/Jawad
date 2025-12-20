@@ -10,71 +10,75 @@
     <t t-call="web.html_container">
       <t t-foreach="docs" t-as="o">
         <t t-call="print_oil_drive.minimal_layout_oil_label">
-<div class="page" style="width: 100mm; height: 70mm; padding: 6px; font-size: 13px; font-family: Arial;">
+<div class="page" style="width: 100mm; height: 70mm; padding: 8px; font-family: Arial, sans-serif; box-sizing: border-box;">
 
     <!-- اللوجو -->
-    <div style="text-align:center; margin-bottom:4px;">
+    <div style="text-align: center; margin-bottom: 6px;">
         <img t-att-src="'/print_oil_drive/static/src/img/logo.png'"
-             style="width: 38mm; height:12mm; object-fit:contain;" />
+             style="width: 40mm; height: 13mm; object-fit: contain;" />
     </div>
 
     <!-- العنوان -->
-    <div style="text-align:center; margin-bottom:8px;">
-        <span style="font-weight:bold; font-size:15px;">
+    <div style="text-align: center; margin-bottom: 10px;">
+        <span style="font-weight: bold; font-size: 16px; display: block;">
             موعد تغيير الزيت القادم
         </span>
     </div>
 
     <!-- جدول البيانات -->
     <table style="
-        width:100%;
+        width: 100%;
         border-collapse: collapse;
         text-align: right;
         direction: rtl;
-        font-size: 13px;
+        font-size: 14px;
+        margin: 0 auto;
     ">
 
-        <tr style="height:22px;">
-            <td style="border:1px solid black; width:48%;">نوع السيارة :</td>
-            <td style="border:1px solid black;">
+        <tr>
+            <td style="border: 1.5px solid #000; padding: 6px 8px; width: 50%; font-weight: 500;">نوع السيارة :</td>
+            <td style="border: 1.5px solid #000; padding: 6px 8px; width: 50%;">
                 <span t-esc="o.car_type"/>
             </td>
         </tr>
 
-        <tr style="height:22px;">
-            <td style="border:1px solid black;">الموديل :</td>
-            <td style="border:1px solid black;">
+        <tr>
+            <td style="border: 1.5px solid #000; padding: 6px 8px; font-weight: 500;">الموديل :</td>
+            <td style="border: 1.5px solid #000; padding: 6px 8px;">
                 <span t-esc="o.car_model"/>
             </td>
         </tr>
 
-        <tr style="height:22px;">
-            <td style="border:1px solid black;">رقم اللوحة :</td>
-            <td style="border:1px solid black;">
+        <tr>
+            <td style="border: 1.5px solid #000; padding: 6px 8px; font-weight: 500;">رقم اللوحة :</td>
+            <td style="border: 1.5px solid #000; padding: 6px 8px;">
                 <span t-esc="o.plate_number"/>
             </td>
         </tr>
 
-        <tr style="height:22px;">
-            <td style="border:1px solid black;">الممشى الحالي :</td>
-            <td style="border:1px solid black;">
+        <tr>
+            <td style="border: 1.5px solid #000; padding: 6px 8px; font-weight: 500;">الممشى الحالي :</td>
+            <td style="border: 1.5px solid #000; padding: 6px 8px;">
                 <span t-esc="o.track"/>
             </td>
         </tr>
 
-        <tr style="height:22px;">
-            <td style="border:1px solid black;">الممشى القادم :</td>
-            <td style="border:1px solid black;">
+        <tr>
+            <td style="border: 1.5px solid #000; padding: 6px 8px; font-weight: 500;">الممشى القادم :</td>
+            <td style="border: 1.5px solid #000; padding: 6px 8px;">
                 <span t-esc="o.next_track"/>
             </td>
         </tr>
 
-<!--        <tr style="height:22px;">-->
-<!--            <td style="border:1px solid black;">نوع الزيت :</td>-->
-<!--            <td style="border:1px solid black;">-->
-<!--                <span t-esc="o.oil_type"/>-->
-<!--            </td>-->
-<!--        </tr>-->
+        <!-- لو عايزة تفعلي نوع الزيت شيلي التعليق -->
+        <!--
+        <tr>
+            <td style="border: 1.5px solid #000; padding: 6px 8px; font-weight: 500;">نوع الزيت :</td>
+            <td style="border: 1.5px solid #000; padding: 6px 8px;">
+                <span t-esc="o.oil_type"/>
+            </td>
+        </tr>
+        -->
 
     </table>
 </div>
