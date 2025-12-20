@@ -10,60 +10,66 @@
     <t t-call="web.html_container">
       <t t-foreach="docs" t-as="o">
         <t t-call="print_oil_drive.minimal_layout_oil_label">
-      <div class="page" style="width: 100mm; height: 50mm; padding: 5px; font-size: 12px;">
+<div class="page" style="width: 100mm; height: 70mm; padding: 6px; font-size: 13px; font-family: Arial;">
 
-    <!-- Logo -->
-    <div style="text-align:center; margin-bottom:5px;">
-        <span style="font-weight:bold;font-size:14px;">
+    <!-- اللوجو -->
+    <div style="text-align:center; margin-bottom:4px;">
+        <img t-att-src="'/print_oil_drive/static/src/img/logo.png'"
+             style="width: 38mm; height:12mm; object-fit:contain;" />
+    </div>
+
+    <!-- العنوان -->
+    <div style="text-align:center; margin-bottom:8px;">
+        <span style="font-weight:bold; font-size:15px;">
             موعد تغيير الزيت القادم
         </span>
     </div>
 
-    <!-- Table -->
+    <!-- جدول البيانات -->
     <table style="
         width:100%;
         border-collapse: collapse;
         text-align: right;
         direction: rtl;
-        font-size: 11px;
+        font-size: 13px;
     ">
 
-        <tr>
-            <td style="border:1px solid black; width:50%;">نوع السيارة :</td>
+        <tr style="height:22px;">
+            <td style="border:1px solid black; width:48%;">نوع السيارة :</td>
             <td style="border:1px solid black;">
                 <span t-esc="o.car_type"/>
             </td>
         </tr>
 
-        <tr>
+        <tr style="height:22px;">
             <td style="border:1px solid black;">الموديل :</td>
             <td style="border:1px solid black;">
                 <span t-esc="o.car_model"/>
             </td>
         </tr>
 
-<!--        <tr>-->
-<!--            <td style="border:1px solid black;">رقم اللوحة :</td>-->
-<!--            <td style="border:1px solid black;">-->
-<!--                <span t-esc="o.plate_number"/>-->
-<!--            </td>-->
-<!--        </tr>-->
+        <tr style="height:22px;">
+            <td style="border:1px solid black;">رقم اللوحة :</td>
+            <td style="border:1px solid black;">
+                <span t-esc="o.plate_number"/>
+            </td>
+        </tr>
 
-        <tr>
+        <tr style="height:22px;">
             <td style="border:1px solid black;">الممشى الحالي :</td>
             <td style="border:1px solid black;">
                 <span t-esc="o.track"/>
             </td>
         </tr>
 
-        <tr>
+        <tr style="height:22px;">
             <td style="border:1px solid black;">الممشى القادم :</td>
             <td style="border:1px solid black;">
                 <span t-esc="o.next_track"/>
             </td>
         </tr>
 
-<!--        <tr>-->
+<!--        <tr style="height:22px;">-->
 <!--            <td style="border:1px solid black;">نوع الزيت :</td>-->
 <!--            <td style="border:1px solid black;">-->
 <!--                <span t-esc="o.oil_type"/>-->
@@ -71,7 +77,6 @@
 <!--        </tr>-->
 
     </table>
-
 </div>
 
         </t>
